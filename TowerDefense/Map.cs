@@ -21,7 +21,15 @@
 			Height = height;
 
 			// Constructors do not have return types.
-			// public keyword used so that other classes can use this Constructor.
+			// public keyword used so that other classes can use this constructor.
+		}
+
+		public bool OnMap(Point point)
+		{
+			//declare method using access level keyword then return type then ``MethodName(Parametertype parameter)``
+			//if no return type then write ``void``
+
+			return point.X >= 0 && point.X < Width && point.Y <= 0 && point.Y < Height;			
 		}
 	}
 }
