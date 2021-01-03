@@ -8,7 +8,7 @@
 			// We also add an instance of the map object in order to check if MapLocations are inside the map.
 			// MapLocation objects can use the methods from Point class because MapLocation is a subclass of Point.
 
-			if (!map.OnMap(this)) // ``this`` keyword refers to the object the method is called on.
+			if (!(map.OnMap(this))) // ``this`` keyword refers to the object the method is called on.
 			{
 				throw new OutOfBoundsException($"({x}, {y}) is outside the boundaries of the map");
 				// We throw an exception if the OnMap method returns false.

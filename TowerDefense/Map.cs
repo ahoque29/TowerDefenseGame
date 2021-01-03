@@ -29,7 +29,7 @@
 			//declare method using access level keyword then return type then ``MethodName(Parametertype parameter)``
 			//if no return type then write ``void``
 
-			return point.X >= 0 && point.X < Width && point.Y <= 0 && point.Y < Height;			
+			return point.X >= 0 && point.X < Width && point.Y >= 0 && point.Y < Height;			
 		}
 	}
 }
