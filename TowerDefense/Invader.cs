@@ -10,6 +10,16 @@
 		//// The property, in essence, sets the field.
 		//private MapLocation _location;
 
+		// Need an instance of the path object in the invader class in order for it to move.
+		// Readonly because this will not change.
+		private readonly Path _path;
+
+		// Need a field to keep track of the where the invader is on the path
+		// Needs to be private because this should not be accessible to other classes.
+		// This will change over time so we do not make it readonly.
+		// Initial value of 0 as the invader start at the beginning of the path.
+		private int _pathStep = 0;
+
 		// Need two methods. One that accesses the location and one that sets the location.
 		// Make use of accessor methods.
 		// Method to get the location:
@@ -49,5 +59,27 @@
 		// Further simplification of above code when the getter just returns the location and the setter assigns it.
 		// In this case, not even the field is required.
 		public MapLocation Location { get; private set; }
+
+		// Since the setter is private, the location of the invader can only be set from within the class
+		// Or else it will have a null value.
+		// Thus we need a constructor.
+		// Here we set the location of the invader at the first step of the path using the GetLocationAt() method.
+		// We can use the _pathStep field to initialise this, since it starts at 0.
+		// Also need to initialise the path.
+		public Invader(Path path)
+		{
+			_path = path;
+			Location = _path.GetLocationAt(_pathStep);
+		}
+
+		// Method to move the invader down the path.
+		// Returns void as it is solely used to move.
+		// Is public as it needs to be used elsewhere to move the invader.
+		// Increment _pathStep and then update the location of the invader using the new _pathStep.
+		public void Move()
+		{
+			_pathStep += 1;
+			Location = _path.GetLocationAt(_pathStep);
+		}
 	}
 }
