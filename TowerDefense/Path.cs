@@ -19,16 +19,19 @@
 
 		public MapLocation GetLocationAt(int pathStep)
 		{
-			if (pathStep < _path.Length)
-			{
-				return _path[pathStep];
-				// This method returns the MapLocation of a step in the path.
-			}
-			else
-			{
-				return null;
-			}
-						
+			// This method returns the MapLocation of a step in the path.
+
+			//if (pathStep < _path.Length)
+			//{
+			//	return _path[pathStep];			
+			//}
+			//else
+			//{
+			//	return null;
+			//}
+
+			// Using ternary if statement
+			return (pathStep < _path.Length) ? _path[pathStep] : null;
 		}
 	}
 }

@@ -55,16 +55,32 @@ namespace TowerDefense
 			{
 				// Creating the path the invaders will take
 				// Path is an array of MapLocations.
-				MapLocation[] path = {
-					new MapLocation(0, 2, map),
-					new MapLocation(1, 2, map),
-					new MapLocation(2, 2, map),
-					new MapLocation(3, 2, map),
-					new MapLocation(4, 2, map),
-					new MapLocation(5, 2, map),
-					new MapLocation(6, 2, map),
-					new MapLocation(7, 2, map),
-				};
+				// Steps: 1) Creating a new Path object named path.
+				// 2) Creating a new array ``new[] {}``
+				// 3) Creating entries into that array as new MapLocations
+				Path path = new Path
+					(
+						new[]
+						{
+							new MapLocation(0, 2, map),
+							new MapLocation(1, 2, map),
+							new MapLocation(2, 2, map),
+							new MapLocation(3, 2, map),
+							new MapLocation(4, 2, map),
+							new MapLocation(5, 2, map),
+							new MapLocation(6, 2, map),
+							new MapLocation(7, 2, map),
+						}
+					);
+
+				// Calling the GetLocationAt to get the MapLocation of a step in the path
+				MapLocation location = path.GetLocationAt(8);
+				if (location != null)
+				{
+					// Printing the coordinates of location if the location is on the path.
+					// This is called a null check.
+					Console.WriteLine($"({location.X}, {location.Y})");
+				}
 			}
 			catch (OutOfBoundsException ex) 
 			{
@@ -74,9 +90,9 @@ namespace TowerDefense
 			{
 				Console.WriteLine("Unhandled TowerDefenseException");
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				Console.WriteLine("Unhandled System.Exception");
+				Console.WriteLine("Unhandled System.Exception " + ex);
 			}
 
 
