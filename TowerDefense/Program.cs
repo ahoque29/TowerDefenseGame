@@ -73,14 +73,30 @@ namespace TowerDefense
 						}
 					);
 
-				// Calling the GetLocationAt to get the MapLocation of a step in the path
-				MapLocation location = path.GetLocationAt(8);
-				if (location != null)
-				{
-					// Printing the coordinates of location if the location is on the path.
-					// This is called a null check.
-					Console.WriteLine($"({location.X}, {location.Y})");
-				}
+				//// Creating a  new Invader and a MapLocation
+				//Invader invader = new Invader();
+				//MapLocation location = new MapLocation(0, 0, map);
+
+				//// Using the SetLocation() method to set the location of the invader ie set
+				//invader.SetLocation(location);
+
+				//// Using the property to set the location of the invader ie set
+				//invader.Location = location;
+
+				//// Using the GetLocation() method to set location to the invader's location ie get
+				//location = invader.GetLocation();
+
+				//// Calling the property getter to set location to invader's location ie get
+				//location = invader.Location;
+
+				//// Calling the GetLocationAt to get the MapLocation of a step in the path
+				//MapLocation location = path.GetLocationAt(8);
+				//if (location != null)
+				//{
+				//	// Printing the coordinates of location if the location is on the path.
+				//	// This is called a null check.
+				//	Console.WriteLine($"({location.X}, {location.Y})");
+				//}
 			}
 			catch (OutOfBoundsException ex) 
 			{
