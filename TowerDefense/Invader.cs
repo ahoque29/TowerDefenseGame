@@ -2,7 +2,8 @@
 {
 	class Invader 
 	{
-		//// Invader needs a MapLocation to see how close it is to a Tower if they are in range of each other.
+		
+	//// Invader needs a MapLocation to see how close it is to a Tower if they are in range of each other.
 		//// It shouldn't be readonly because the Invader should be moving through the path.
 		//// The method should not be public because this divulges too much info.
 		//// Instead, make the field private and include public methods to access the field.
@@ -61,7 +62,7 @@
 		//public MapLocation Location { get; private set; }
 
 		//// We can further add to the code to ensure Location always gets updated
-		//// This will prevent code repetition when setting the locatin in the constructors and methods when an Invader is initialised or moved.
+		//// This will prevent code repetition when setting the location in the constructors and methods when an Invader is initialised or moved.
 		//public MapLocation Location
 		//{
 		//	get
@@ -82,9 +83,19 @@
 		// Here we set the location of the invader at the first step of the path using the GetLocationAt() method.
 		// We can use the _pathStep field to initialise this, since it starts at 0.
 		// Also need to initialise the path.
+		// We can also assign a value for the Invader's Health in the constructor.
+		// In this case we will assign it in the property.
+
+		// Invader need to have a base health value. Start with 2.
+		// The setter is set to private so that the other classes have to use the method to change the health.
+		public int InvaderHealth { get; private set; } = 2;
+		// Will need a method to decrease the health of the invader.
+
 		public Invader(Path path)
 		{
-			_path = path;		
+			_path = path;
+			//InvaderHealth = 2;
+			//// Code to use when assigning InvaderHealth in the property.
 		}
 
 		//// Method to move the invader down the path.
@@ -100,5 +111,12 @@
 		public void Move() => _pathStep += 1;
 		// This is differentiated by the other by the parenthesis in the name of the method, telling us that is is a method not a property.
 		// This shortening is not necessary to use but must be familiarised with.
+
+		// Method to decrease the health of the invader.
+		// Health of the invader is decreased by the damage the tower deals.
+		public void DecreaseInvaderHealth(int damage)
+		{
+			InvaderHealth -= damage;
+		}
 	}
 }
