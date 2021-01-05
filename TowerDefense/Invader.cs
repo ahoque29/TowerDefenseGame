@@ -91,6 +91,18 @@
 		public int InvaderHealth { get; private set; } = 2;
 		// Will need a method to decrease the health of the invader.
 
+		// We want to know if the invader has reached the end of the path.
+		// We can figure this out using the path and pathstep fields.
+		// Invader has reached the end if it's pathstep is greater than or equals to the path length.
+		public bool HasReachEnd => _pathStep >= _path.Length;
+		
+		// Property to indicate when an invader has been neutralised.
+		public bool IsNeutralized => InvaderHealth <= 0;
+
+		// Proerty to indicate if an invader is active.
+		// Invader is active while it is not neutralised or hasn't reached the end of the path yet.
+		public bool IsActive => !(IsNeutralized || HasReachEnd);
+
 		public Invader(Path path)
 		{
 			_path = path;

@@ -11,6 +11,9 @@
 		// Readonly only prevents overwriting the field with a different value.
 		// Does not prevent individual items in the array to get changed.
 		// That is why it is made part of a separate class.
+
+		public int Length => _path.Length;
+		// Property that returns the length of the path array.
 		
 		public Path(MapLocation[] path)
 		{
