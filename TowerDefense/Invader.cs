@@ -60,17 +60,21 @@
 		//// In this case, not even the field is required.
 		//public MapLocation Location { get; private set; }
 
-		// We can further add to the code to ensure Location always gets updated
-		// This will prevent code repetition when setting the locatin in the constructors and methods when an Invader is initialised or moved.
-		public MapLocation Location
-		{
-			get
-			{
-				return _path.GetLocationAt(_pathStep);
-				// The getter now computes the Location everytime it's requested.
-				// We no longer need a setter.
-			}
-		}
+		//// We can further add to the code to ensure Location always gets updated
+		//// This will prevent code repetition when setting the locatin in the constructors and methods when an Invader is initialised or moved.
+		//public MapLocation Location
+		//{
+		//	get
+		//	{
+		//		return _path.GetLocationAt(_pathStep);
+		//		// The getter now computes the Location everytime it's requested.
+		//		// We no longer need a setter.
+		//	}
+		//}
+		//// This can be simplified even further as shown below
+
+		public MapLocation Location => _path.GetLocationAt(_pathStep);
+		// This reads the same as the above code and tells us the property returns the the location of the invader.
 
 		// Since the setter is private, the location of the invader can only be set from within the class
 		// Or else it will have a null value.
@@ -83,13 +87,18 @@
 			_path = path;		
 		}
 
-		// Method to move the invader down the path.
-		// Returns void as it is solely used to move.
-		// Is public as it needs to be used elsewhere to move the invader.
-		// Increment _pathStep and then update the location of the invader using the new _pathStep.
-		public void Move()
-		{
-			_pathStep += 1;		
-		}
+		//// Method to move the invader down the path.
+		//// Returns void as it is solely used to move.
+		//// Is public as it needs to be used elsewhere to move the invader.
+		//// Increment _pathStep and then update the location of the invader using the new _pathStep.
+		//public void Move()
+		//{
+		//	_pathStep += 1;		
+		//}
+		//// This can be simplified further using syntax similar to shortening of the property.
+
+		public void Move() => _pathStep += 1;
+		// This is differentiated by the other by the parenthesis in the name of the method, telling us that is is a method not a property.
+		// This shortening is not necessary to use but must be familiarised with.
 	}
 }
