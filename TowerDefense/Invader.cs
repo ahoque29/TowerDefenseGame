@@ -56,9 +56,21 @@
 		//	}
 		//}
 
-		// Further simplification of above code when the getter just returns the location and the setter assigns it.
-		// In this case, not even the field is required.
-		public MapLocation Location { get; private set; }
+		//// Further simplification of above code when the getter just returns the location and the setter assigns it.
+		//// In this case, not even the field is required.
+		//public MapLocation Location { get; private set; }
+
+		// We can further add to the code to ensure Location always gets updated
+		// This will prevent code repetition when setting the locatin in the constructors and methods when an Invader is initialised or moved.
+		public MapLocation Location
+		{
+			get
+			{
+				return _path.GetLocationAt(_pathStep);
+				// The getter now computes the Location everytime it's requested.
+				// We no longer need a setter.
+			}
+		}
 
 		// Since the setter is private, the location of the invader can only be set from within the class
 		// Or else it will have a null value.
@@ -68,8 +80,7 @@
 		// Also need to initialise the path.
 		public Invader(Path path)
 		{
-			_path = path;
-			Location = _path.GetLocationAt(_pathStep);
+			_path = path;		
 		}
 
 		// Method to move the invader down the path.
@@ -78,8 +89,7 @@
 		// Increment _pathStep and then update the location of the invader using the new _pathStep.
 		public void Move()
 		{
-			_pathStep += 1;
-			Location = _path.GetLocationAt(_pathStep);
+			_pathStep += 1;		
 		}
 	}
 }
