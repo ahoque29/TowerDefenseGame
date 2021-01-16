@@ -1,6 +1,6 @@
 ﻿namespace TowerDefense // This is the namespace that all classes are under.
 {
-	class Tower // Class declared called Tower. Classes are conventionally names starting with upper case.
+	class Tower // Class declared called Tower. Classes are conventionally named starting with upper case.
 	{
 		// Field to initialize the range of the tower
 		// Made into a constant so the value cannot be changed
