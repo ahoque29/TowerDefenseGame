@@ -73,6 +73,43 @@ namespace TowerDefense
 						}
 					);
 
+				// Creating an array of invaders to run the level
+				Invader[] invaders =
+					{
+						new Invader(path),
+						new Invader(path),
+						new Invader(path),
+						new Invader(path),
+					};
+
+
+				// For now, will assign the towers in the code
+				// In the future, user should be able to choose where to input the towers.
+				// Creating array of towers
+				Tower[] towers =
+					{
+						new Tower(new MapLocation(1, 3, map)),
+						new Tower(new MapLocation(3, 3, map)),
+						new Tower(new MapLocation(5, 3, map)),
+					};
+
+				// Then we create the level and pass in the invader's array to it.
+				Level level = new Level(invaders)
+				{
+					// Setting the tower property inside Level to the towers we have designated above.
+					Towers = towers
+				};
+
+				// Now we call the Play() method to run the the level and store the return value.
+				bool playerWon = level.Play();
+
+				// Finally, print the outcome of the game to the screen.
+				Console.WriteLine("Player has " + (playerWon ? "won" : "lost") + ".");
+
+				//// Set the tower property inside Level to the towers we have designated here.
+				//// This is obsolete because this can be done during the object creation.
+				//level.Towers = towers;
+
 				//// Creating a  new Invader and a MapLocation
 				//Invader invader = new Invader();
 				//MapLocation location = new MapLocation(0, 0, map);
