@@ -76,7 +76,7 @@ namespace TowerDefense
 				// Creating an array of invaders to run the level
 				Invader[] invaders =
 					{
-						new Invader(path),
+						new ShieldedInvader(path),
 						new Invader(path),
 						new Invader(path),
 						new Invader(path),

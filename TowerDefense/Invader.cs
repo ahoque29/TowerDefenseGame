@@ -126,9 +126,11 @@
 
 		// Method to decrease the health of the invader.
 		// Health of the invader is decreased by the damage the tower deals.
-		public void DecreaseInvaderHealth(int damage)
+		// Adding the keyword virtual so that subclasses can implement their own variant of this method.
+		public virtual void DecreaseInvaderHealth(int damage)
 		{
 			InvaderHealth -= damage;
+			System.Console.WriteLine("Shot and hit an invader!");
 		}
 	}
 }

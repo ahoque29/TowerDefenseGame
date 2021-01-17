@@ -88,8 +88,9 @@ namespace TowerDefense // This is the namespace that all classes are under.
 						// We want the tower to only shoot at one invader at a time.
 						// So once the above method is called, we increment the loop index by breaking out of the loop.
 
-						// Print to the console to indicate the successful shot
-						Console.WriteLine("Shot and hit an invader!");
+						//// Print to the console to indicate the successful shot
+						//Console.WriteLine("Shot and hit an invader!");
+						//// Later decided to move this to the DecreaseHeath() method.
 
 						// Print to the console if invader is neutralised
 						if (invader.IsNeutralized)
